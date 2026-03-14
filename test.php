@@ -1,5 +1,4 @@
 <html>
-heroku config:get JAWSDB_URL -a アプリ名
 <head>
 
 <title>test</title>
