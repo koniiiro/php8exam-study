@@ -1,134 +1,108 @@
 
-<!-- //  {{ Chapter 2-1 変数の命名規則 }}
 
-$SKY = 'blue';
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>PHP の基本構文</title>
 
-$3d = true; 3. $-pi = 3.14; 4. $SKY = 'blue'; 
+<style>
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    margin: 40px;
+}
 
-<div>
-= 解説 = 
-PHPの変数名は以下のルールのすべてに従う必要があります。<br>
-</div>
+h1{
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
 
-<div>
- ● 1文字目：$ 
- ● 2文字目：文字またはアンダースコア 
- ● 3文字目以降：文字、数字、アンダースコアのいずれか
+.code-box{
+    background:#f6f8fa;
+    padding:15px;
+    border-radius:6px;
+    overflow:auto;
+    margin:20px 0;
+    font-family: monospace;
+}
 
-つまり
- ● $から始めなければならない 
- ● $の次に数字は使えない 
- ● $の後はどこでも文字とアンダースコアを使える
-</div>
+.note{
+    background:#fff8e1;
+    padding:10px;
+    border-left:4px solid #f0ad4e;
+    margin:20px 0;
+}
+</style>
 
-// 1. var 'green'; 1つ目の選択肢は、そもそも変数名を記載しているためエラーになります。
+</head>
 
-//  var というキーワードは、別のChapterで後述する「クラス」のプロパティを宣言する際に使われることがあります。 
- 
-// 2. $3d = true; 2つ目の選択肢は、変数名の2文字目が数字になっているため、エラーになります。
+<body>
 
-// 3. $-pi = 3.14; 3つ目の選択肢は、変数名の2文字目がハイフンになっているため、エラーになります。 
+<h1>Chapter 2 変数と定数</h1>
 
-// 4. $SKY = 'blue'; 4つ目の選択肢には問題がありません。変数名には大文字を使うことができます。 
-// 正解：4
+<p>変数の命名規則</p>
 
-// = 現場ならではの使い方 = 
-// PHPの変数名のルール内でも、意外と様々な変数名をつけられます。
-// 以下の変数名はすべて有効な変数名ですし、
-// このコードは問題なく動いて「I have 2 pens.」と出力します。 -->
+<h4>ルール</h4>
+・$から始める<br>
+・次に数字は使えない<br>
+・文字、数字、_が使える<br>
+
+<h4>OK / NG例 </h4>
+OK:  $SKY , $_name , $item2 <br>
+NG:  $3d ,  $-pi  , var 'x' <br>
+
+<h4>命名規則</h4>
+スネークケース <br>
+キャメルケース <br>
+パスカルケース <br>
+
+<h2>Chapter 2-1 実行結果</h2>
+<p>変数の命名規則の例と、読みやすい変数名の実行例です。</p>
+
+<!-- Chapter 2-1 実行例 -->
+
+<div style="background:#f6f8fa; padding:15px; border-radius:6px;">
 
 <?php
 $QaWsEdRfTg = true; 
 $_____o_____ = 2; 
 $いろはにほへと = ' pens.'; 
 
-if ($QaWsEdRfTg) { echo 'I have ' . $_____o_____ . $いろはにほへと; } 
-
+if ($QaWsEdRfTg) {
+    echo 'I have ' . $_____o_____ . $いろはにほへと;
+}
 ?>
 
-<!-- // しかし、これはとても変で読みにくいコードです。
-// 変数名をつける場合は、以下のことに気をつけると誰でも読みやすいコードになります。
-// ● 名は体を表そう
-// ● 変数名に一貫性を持たせよう 
-
-//  名は体を表そう 
-//  変数名の中に何が入っているのかを表す、端的な名前をつけましょう。
-//  例えば人の名前ならば $age ではなく $name という変数名を使う方が明らかに相応しいでしょう。
-//  入っている私の種類が数字なのか文字列なのか、はたまた
-//  フラグ（条件によって処理を変えるための値）なのかという情報も分かるようになっていると、
-//  なお良しです。 
-// この点に気をつけてコードを書き直してみましたが、まだ少し変です。 -->
+<hr>
 
 <?php
 $DOECHO = true; 
 $number_of_pens = 2; 
 $ペンのテキスト = ' pens.';
 
-if ($DOECHO) { echo 'I have ' . $number_of_pens . $ペンのテキスト; } 
-
+if ($DOECHO) {
+    echo 'I have ' . $number_of_pens . $ペンのテキスト;
+}
 ?>
 
-<!-- // 変数名に一貫性を持たせよう 
-// 変数名に一貫性を持たせるとコードが読みやすくなります。
-// また、コードを書きやすくもなります。
-// 選択肢が決まっている方が、書くときに迷う量が減るからです。 
-// 変数名に一貫性を持たせてみました。
-// 最初のコードと実行結果は同じですが、かなり読みやすくなりました。 -->
+<hr>
 
 <?php
-$DOECHO=true;
-$number_of_pens=2;
-$ペンのテキスト='pens.';
-if($DOECHO){
-    echo 'I have'.$number_of_pens. $ペンのテキスト;
-}
+$do_echo = true;
+$number_of_pens = 2;
+$text_for_pens = ' pens.';
 
-$do_echo=true;
-$number_of_pens=2;
-$text_for_pens='pens.';
-if($do_echo){
-    echo 'I have'.$number_of_pens.
-$text_for_pens;
-
-$sky_color='blue';
-$SKY_COLOR='orange';
-$sky_Color='black';
-echo $sky_color;
-
-$sky_color='blue';
-$SKY_COLOR='orange';
-
-function echo_sky(){
-    echo 'Beautiful' .$sky_color. 'sky!';
-
-}
-function ECHO_SKY(){
-    echo 'Beautiful'.$SKY_COLOR. 'sky!';
+if ($do_echo) {
+    echo 'I have ' . $number_of_pens . $text_for_pens;
 }
 ?>
 
+</div>
+
+</section>
 
 
-<!-- Chapter 2 — 変数の命名規則
-ルール（3つだけ覚える）
-必ず $ で始める
-$ の直後に数字は使えない
-3文字目以降は 文字・数字・_ が使える
-OK / NG の例
-OK $SKY  $_name  $item2
-NG $3d  $-pi  var 'x'
-命名規則（コーディング規約で統一する）
-名前	別名	例
-スネークケース	アンダースコア記法	$sky_color
-キャメルケース	ローワーキャメルケース	$skyColor
-パスカルケース	アッパーキャメルケース	$SkyColor
-チームで1つを選んで統一することが大切。迷いが減り、書き間違いに気づきやすくなる。
-読みやすい変数名の2原則
-名は体を表す：何が入っているか一目でわかる名前にする
-$age → 名前を入れるなら $name が正しい
-一貫性を保つ：プロジェクト全体で同じ記法を使う
-例）$sky_color と $SKY_COLOR を混在させない
-良い例:
-$do_echo        = true;
-$number_of_pens = 2;
-$text_for_pens  = 'pens.'; -->
+
+</body>
+</html>
